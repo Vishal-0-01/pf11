@@ -49,3 +49,10 @@ v1 to v3: universe and identity validation, covariance repair, scenario and Mont
 
 ## Deployment hardening: data and frontend at run time
 - `vercel.json`: `includeFiles` `{data/**,public/**}`. `datasets.py`: data directory falls back to the working directory. `webapp.py`: public directory fallback, `/api/health?light=1&diag=1` diagnostics. `data_fetcher.py`: error names the searched path. `tools/verify_vercel_build.py`: routing emulation, endpoint checks, optional browser check. Two tests added (148 total). Model logic, objective and results unchanged.
+
+## Frontend redesign (presentation only)
+- `public/index.html` rewritten: light institutional theme, seven-section hierarchy (Overview, Fund Selection, Dynamic Allocation, Historical Performance, Hypothesis Testing, Additional Model Comparisons, Risk Simulation), sticky navigation, responsive layout.
+- Main performance view shows only Dynamic vs Nifty 50 TRI (CAGR, volatility, max drawdown, Sharpe, Sortino, Growth of 100) on identical dates and a linear axis from zero. Fixed 70/20/10 and valuation-blind moved into the collapsed "Additional Model Comparisons" section with all four scenarios and the H1 sensitivities.
+- Hypotheses: three compact cards (statement, verdict from the API, one-line interpretation generated from the API numbers); tests, bootstrap method, sensitivity and H2 views in the collapsed "Statistical Details".
+- Monte Carlo moved to the bottom; four summary tiles; distributions, table and assumptions in a collapsed panel. Unfavourable results (e.g. 42% probability of a 10%+ drawdown, H2 hold-out not lower) are shown.
+- No backend, dataset, result, model or API change (only `public/index.html` differs from the previous ZIP; 148 tests pass).

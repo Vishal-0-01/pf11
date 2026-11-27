@@ -1,3 +1,4 @@
 Run 2026-11-27: 148 passed (pytest tests -q)
-Vercel CLI build + routing/bundle/browser emulation: tools/verify_vercel_build.py OK (preset Other and Flask)
+Vercel CLI build + routing/bundle/browser emulation: tools/verify_vercel_build.py OK
+Headless Chromium on the redesigned page: no JS errors, no failed API calls; sections, sliders, presets checked.
 Not a live Vercel deployment test.
